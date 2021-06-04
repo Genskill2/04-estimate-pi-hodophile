@@ -12,8 +12,8 @@ float frandom() {
 }
 
 int main(void) {
-  float pi0;
-  float pi1;
+  float pi0=0.0;
+  float pi1=0.0;
   
   pi0 = mc_pi(25000);
   pi1 = mc_pi(25000);
@@ -40,17 +40,26 @@ int main(void) {
 }
 
 float mc_pi(int n){
+	int as = 0;
+	int ac = 0;
+	float pi;
 	for(int i=1;i<=n;i++){
 		float x=frandom();
 		float y=frandom();
 		float d=(x*x)+(y*y);
+		as+=1;
 		d=sqrt(d);
-		float ac=(M_PI*d*d);
-		float as=(4*d*d);
-		float pi = 4*(ac/as);
-		return pi; 
 		
+		if (d<=1.0){
+			ac+=1; // area of square
+		}
+		//printf("x : %f\n",x);
+		//printf("y : %f \n",y);
+		//printf("d : %f\n",d);
+		//printf("ac : %d\n",ac);
+		//printf("as : %d\n",as);
+		pi = 4*((float)ac/(float)as);
+		//printf("pi : %f\n\n",pi);		
 	}
+	return pi;
 }
-
-
