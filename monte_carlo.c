@@ -48,9 +48,8 @@ float mc_pi(int n){
 		float ac=(M_PI*d*d);
 		float as=(4*d*d);
 		float pi = 4*(ac/as);
-		if(M_PI == pi){
-			return pi; 
-		}
+		return pi; 
+		
 	}
 }
 
